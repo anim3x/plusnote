@@ -1,8 +1,13 @@
+<script setup>
+import MakePost from './board/MakePost.vue';
+import NavBar from './board/NavBar.vue';
+
+</script>
+
 <template>
     <main>
-      <h1 class="hello">
-          Привет PlusNote!
-      </h1>
+        <NavBar />
+        <MakePost />
     </main>
 </template>
 

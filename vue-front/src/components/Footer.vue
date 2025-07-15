@@ -2,7 +2,7 @@
 <template>
     <footer>
         <span class="foot-info">
-            <b>&#169; </b>2025 +note agile cреда для начинающих
+            &#169; 2025 +note v1.1
         </span>
     </footer>
 </template>

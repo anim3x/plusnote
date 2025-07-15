@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <header>
-    <img src='../assets/logo-plusnote.png' class="logo" />
+    <img src='@/assets/logo-plusnote.png' class="logo" />
   </header>
 </template>
 
@@ -16,7 +16,7 @@
     header {
         border-bottom-color: #6dbbe9;
         border-bottom-style: dotted;
-        border-bottom-width: 0.2em;
+        border-bottom-width: 0.2rem;
         min-height: 10vh;
         background-color: #fff;
     }
