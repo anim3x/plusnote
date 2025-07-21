@@ -1,48 +1,32 @@
 <template>
-    <div class="make-post">
-        <div class="post-wrap">
-            <input v-model="form_title" class="post-text" type="text" size="30">
-             <button @click="sendTitle" class="but-post-accept" type="submit">
+        <div class="make-post">
+            <label>
+                  <span class="post-text-label">Заголовок:</span>
+                <input v-model="form_title" class="post-text" type="text" size="20">
+            </label>          
+            <button @click="sendTitle" class="but-post-accept" type="submit">
                     <img class="img-post-accept" src="@/assets/accpet-post.png" />
              </button>
         </div>
-    </div>
 </template>
 
-<script>
-import api from '@/services/api'
+<script setup>
+import api from '@/services/api';
 
-    export default {
-        data() {
-            return{
-                form_title: ''
-            }
-        },
-
-        methods: {
-            sendTitle() {
-                api.post('/post', {
-                    title: this.form_title
-                })
-                .then(()=> {
-                    this.form_title = '';
-                })
-            },
-        }
+    const form_title = defineModel()
+    
+    function sendTitle() {
+        api.post('/savepost', {
+            title: form_title.value
+            })
+            .then(()=> {
+                form_title.value = ''
+            })
     }
 </script>
 
 <style>
-    .make-post {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 60vw;
-        min-height: 82vh;
-        /* background-color: tomato; */
-    }
-
-   .post-wrap {
+   .make-post {
         margin-top: -15vh;
         /* background-color: pink; */
     }
@@ -54,6 +38,15 @@ import api from '@/services/api'
         font-size: 14pt;
         color: #406ad1;
     }
+
+    .post-text-label {
+        font-size: 13pt;
+        color: #406ad1;
+        display: block;
+        padding-bottom: 1rem;
+        padding-top: 2rem;
+    }
+
     .post-text:focus {
        outline: none;
     }

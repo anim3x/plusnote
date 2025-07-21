@@ -1,12 +1,12 @@
 <script setup>
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue';
-import TaskBoard from './components/TaskBoard.vue';
+import MainWindow from './components/MainWindow.vue';
 </script>
 
 <template>
     <Header />
-    <TaskBoard />
+    <MainWindow />
     <Footer />
 
 </template>

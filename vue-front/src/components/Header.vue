@@ -1,7 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <header>
-    <img src='@/assets/logo-plusnote.png' class="logo" />
+    <router-link :to="{ name: 'home' }">
+      <img src='@/assets/logo-plusnote.png' class="logo" />
+      </router-link>
   </header>
 </template>
 
@@ -19,5 +21,6 @@
         border-bottom-width: 0.2rem;
         min-height: 10vh;
         background-color: #fff;
+        overflow: hidden;
     }
 </style>

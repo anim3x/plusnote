@@ -1,13 +1,13 @@
 <script setup>
-import MakePost from './board/MakePost.vue';
-import NavBar from './board/NavBar.vue';
+import NavBar from './NavBar.vue';
+import TaskBoard from './board/TaskBoard.vue';
 
 </script>
 
 <template>
     <main>
         <NavBar />
-        <MakePost />
+        <TaskBoard />
     </main>
 </template>
 

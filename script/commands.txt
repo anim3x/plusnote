@@ -1,0 +1,5 @@
+# Зайти в БД CLI
+mysql -u root -p
+
+# Накатить БД
+php artisan migrate

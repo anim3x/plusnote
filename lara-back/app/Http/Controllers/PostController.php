@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -13,5 +14,10 @@ class PostController extends Controller
         $post->curdate = date('Y-m-d');
         // info('title: '.$title);
         $post->save();
+    }
+
+    public function getPost() {
+        $posts = DB::table('posts')->get();
+        return $posts;
     }
 }

@@ -8,4 +8,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/api/post', [PostController::class, 'savePost']);
+Route::post('/api/savepost', [PostController::class, 'savePost']);
+Route::get('/api/getpost', [PostController::class, 'getPost']);
