@@ -17,7 +17,7 @@ class PostController extends Controller
     }
 
     public function getPost() {
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')->paginate(10);
         return $posts;
     }
 }

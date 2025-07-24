@@ -8,7 +8,7 @@
     .post {
         display: flex;
         justify-content: center;
-        align-items: center;
+        /* align-items: center; */
         width: 60vw;
         min-height: 82vh;
         overflow: hidden;

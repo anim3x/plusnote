@@ -2,7 +2,7 @@
 <template>
   <header>
     <router-link :to="{ name: 'home' }">
-      <img src='@/assets/logo-plusnote.png' class="logo" />
+      <img src='@/assets/main/logo-plusnote.png' class="logo" />
       </router-link>
   </header>
 </template>

@@ -10,7 +10,7 @@ html, body {
     font-size: 12pt;
     margin: 0;
     padding: 0;
-    background-image: url('./decor.png');
+    background-image: url('./main/decor.png');
     background-size: 7vw 24vh;
 }
 
