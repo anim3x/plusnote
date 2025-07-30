@@ -3,3 +3,6 @@ mysql -u root -p
 
 # Накатить БД
 php artisan migrate
+
+# Создать миграцию для обновления БД
+php artisan make:migration add_description_to_posts_table --table posts

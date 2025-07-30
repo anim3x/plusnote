@@ -14,7 +14,7 @@ import TaskBoard from './board/TaskBoard.vue';
 <style>
     main {
         display: flex;
-        min-height: 82vh;
+        height: 85vh;
         background-color: #fff;
         /* background-color: tomato; */
     }

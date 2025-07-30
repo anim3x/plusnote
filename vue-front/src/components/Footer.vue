@@ -2,7 +2,7 @@
 <template>
     <footer>
         <span class="foot-info">
-            &#169; 2025 +note v1.3
+            &#169; 2025 +note v1.4
         </span>
     </footer>
 </template>

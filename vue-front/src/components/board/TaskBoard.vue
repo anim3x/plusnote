@@ -12,6 +12,6 @@
         width: 60vw;
         min-height: 82vh;
         overflow: hidden;
-        /* background-color: tomato; */
+        /* background-color: pink; */
     }
 </style>

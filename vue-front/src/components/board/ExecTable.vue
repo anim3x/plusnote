@@ -13,7 +13,7 @@
     const isLast = ref(false)
 
     onMounted(()=> {
-        api.get('/getpost')
+        api.get('/gettitle')
             .then((resp)=> {
             posts.value = resp.data.data
             maxNum.value = resp.data.last_page
@@ -21,7 +21,7 @@
     })
 
     function getPostNum() {
-        api.get(`/getpost?page=${pageNum.value}`)
+        api.get(`/gettitle?page=${pageNum.value}`)
             .then((resp)=> {
             posts.value = resp.data.data
         }) 
@@ -58,7 +58,11 @@
             </thead>
             <tbody>
                 <tr v-for="post in posts" :key="post.title">
-                    <td>{{ post.title }}</td>
+                    <td>
+                        <router-link :to="`/post/${post.id}`" class="link-title">
+                            {{ post.title }}
+                        </router-link>
+                    </td>
                     <td>{{ post.curdate }}</td>
                 </tr>
             </tbody>
@@ -75,6 +79,15 @@
 </template>
 
 <style>
+    .link-title {
+        text-decoration: none;
+        color: #406ad1;
+    }
+
+    .link-title:hover {
+        color: #0604FF;
+    }
+
     .view-post {
         height: 23vh;
         margin-top: 10vh;
@@ -85,7 +98,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* background-color: pink; */
     }
 
     .scroll-ico {

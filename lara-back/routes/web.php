@@ -9,4 +9,6 @@ Route::get('/', function () {
 });
 
 Route::post('/api/savepost', [PostController::class, 'savePost']);
-Route::get('/api/getpost', [PostController::class, 'getPost']);
+Route::get('/api/gettitle', [PostController::class, 'getTitle']);
+Route::get('/api/getpost/{id}', [PostController::class, 'getPost']);
+Route::get('/api/postcount', [PostController::class, 'postCount']);

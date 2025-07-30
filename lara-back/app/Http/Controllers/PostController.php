@@ -12,12 +12,24 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->input('title');
         $post->curdate = date('Y-m-d');
+        $post->description = $request->input('description');
+        $post->version = $request->input('version');
         // info('title: '.$title);
         $post->save();
     }
 
-    public function getPost() {
-        $posts = DB::table('posts')->paginate(10);
+    public function getTitle() {
+        $posts = DB::table('posts')->orderBy('id', 'desc')->paginate(10, ['id', 'title', 'curdate']);
         return $posts;
+    }
+
+    public function getPost($id) {
+        $posts = DB::table('posts')->where('id', $id)->first();
+        return $posts;
+    }
+
+    public function postCount() {
+        $pcount = DB::table('posts')->count();
+        return $pcount;
     }
 }

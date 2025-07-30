@@ -1,14 +1,20 @@
 <script setup>
 import api from '@/services/api';
 
-    const form_title = defineModel()
+    const form_title = defineModel('title')
+    const form_description = defineModel('description')
+    const form_version = defineModel('version')
     
     function sendTitle() {
         api.post('/savepost', {
-            title: form_title.value
+            title: form_title.value,
+            description: form_description.value,
+            version: form_version.value
             })
             .then(()=> {
                 form_title.value = ''
+                form_description.value = ''
+                form_version.value = ''
             })
     }
 </script>
@@ -16,9 +22,17 @@ import api from '@/services/api';
 <template>
         <div class="make-post">
             <label>
-                  <span class="post-text-label">Заголовок:</span>
-                <input v-model="form_title" class="post-text" type="text" size="20">
-            </label>          
+                <span class="post-text-label">Заголовок:</span>
+                    <input v-model="form_title" class="post-title" type="text" size="20">
+            </label>
+            <label>
+                <span class="post-text-label">Версия:</span>
+                    <input v-model="form_version" class="post-title" type="text" size="20">
+            </label>
+            <label>
+                <span class="post-text-label">Описание:</span>
+                    <textarea v-model="form_description" class="post-text" placeholder="Описание задачи"/>
+            </label>       
             <button @click="sendTitle" class="but-post-accept" type="submit">
                     <img class="img-post-accept" src="@/assets/board/accpet-post.png" />
              </button>
@@ -27,11 +41,28 @@ import api from '@/services/api';
 
 <style>
    .make-post {
-        margin-top: 20vh;
+        margin-top: 10vh;
         /* background-color: pink; */
     }
 
-    .post-text {    
+    .post-text {
+        width: 30rem;
+        height: 10rem;
+        border: 1px solid #0090d7;
+        font-family: excali;
+        font-size: 12pt;
+        color: #406ad1;
+    }
+
+    .post-text:focus {
+        outline: none;
+    }
+
+    .post-text::placeholder {
+        color: #a0b6ed;;
+    }
+
+    .post-title {    
         border: none;
         border-bottom: 1px solid #0090d7;
         font-family: excali;
@@ -47,7 +78,7 @@ import api from '@/services/api';
         padding-top: 2rem;
     }
 
-    .post-text:focus {
+    .post-title:focus {
        outline: none;
     }
 
