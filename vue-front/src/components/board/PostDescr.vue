@@ -1,13 +1,17 @@
 <script setup>
     import { ref, onMounted } from 'vue'
-    import { useRoute } from 'vue-router'
+    import { useRoute, useRouter } from 'vue-router'
     import api from '@/services/api'
     import arrPrev from '@/assets/board/arr-left.png'
     import arrPrevDis from '@/assets/board/arr-left-dis.png'
     import arrNext from '@/assets/board/arr-right.png'
     import arrNextDis from '@/assets/board/arr-right-dis.png'
+    import CommentBar from '../comment/CommentBar.vue'
 
-    const route = useRoute();
+
+    // const foUrl = 'http://dev.lan:5173'
+    const route = useRoute()
+    const router = useRouter()
     const title = ref()
     const version = ref()
     const curdate = ref()
@@ -18,14 +22,8 @@
     const isFirst = ref(false)
     const isLast = ref(false)
 
-    onMounted(()=> {
-        api.get(`/getpost/${route.params.id}`)
-            .then((resp)=> {
-            title.value = resp.data.title
-            version.value = resp.data.version
-            curdate.value = resp.data.curdate
-            description.value = resp.data.description
-        })
+    onMounted(()=> {  
+        getPost()
 
         api.get('/postcount')
             .then((resp)=> {
@@ -37,18 +35,11 @@
         })
     })
 
-    function getPostRec() {
-        api.get(`/getpost/${pageNum.value}`)
-            .then((resp)=> {
-            title.value = resp.data.title
-            version.value = resp.data.version
-            curdate.value = resp.data.curdate
-            description.value = resp.data.description
-        }) 
-    }
-
     function incrPage() {
         pageNum.value++
+        // window.location = `${foUrl}/post/${pageNum.value}`
+        router.push(`/post/${pageNum.value}`)
+        // console.log(pageNum.value)
         if (pageNum.value > 1)
             isFirst.value = false
 
@@ -58,11 +49,26 @@
 
     function decrPage() {
         pageNum.value--
+        // window.location = `${foUrl}/post/${pageNum.value}`
+        router.push(`/post/${pageNum.value}`)
+        // console.log(pageNum.value)
         if (pageNum.value == 1)
             isFirst.value = true
 
         if (pageNum.value < maxNum.value)
             isLast.value = false
+    }
+
+    function getPost() {
+        // console.log(route.params.id)
+        // api.get(`/getpost/${route.params.id}`)
+        api.get(`/getpost/${pageNum.value}`)
+            .then((resp)=> {
+            title.value = resp.data.title
+            version.value = resp.data.version
+            curdate.value = resp.data.curdate
+            description.value = resp.data.description
+        })
     }
 
 </script>
@@ -82,13 +88,14 @@
             </div>
         </div>
         <div class="scroll-descr">
-            <button @click="isFirst ? null : decrPage(); getPostRec()" class="scroll-but-descr">
+           <button @click="isFirst ? null : decrPage(); getPost()" class="scroll-but-descr">
                 <img class="scroll-ico-descr" :src="isFirst ? arrPrevDis : arrPrev" />
              </button>
-             <button @click="isLast ? null : incrPage(); getPostRec()" class="scroll-but-descr">
+             <button @click="isLast ? null : incrPage(); getPost()" class="scroll-but-descr">
                 <img class="scroll-ico-descr" :src="isLast ? arrNextDis : arrNext" />
-            </button>
+            </button> 
         </div>
+        <CommentBar />
     </div>
 
 </template>
@@ -97,8 +104,8 @@
     .wrap-post {
         /* background-color: pink; */
         width: 70%;
-        height: 66%;
-        margin-top: 5rem;
+        margin-top: 7vh;
+        height: 55vh;
     }
 
     .post-block {
@@ -108,16 +115,14 @@
     }
 
     .scroll-descr {
-        /* background-color: tomato; */
         height: 15%;
         display: flex;
         justify-content: center;
-        overflow: hidden;
     }
 
     .scroll-but-descr {
         border: none;
-        margin: 0.75rem;
+        margin: 0.3rem 0.75rem 0 0.75rem;
         background: transparent;
         cursor: pointer;
     }

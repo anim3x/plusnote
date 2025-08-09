@@ -6,3 +6,9 @@ php artisan migrate
 
 # Создать миграцию для обновления БД
 php artisan make:migration add_description_to_posts_table --table posts
+
+# Создать контроллер
+php artisan make:controller CommentController
+
+# Создать модель
+php artisan make:model Comment

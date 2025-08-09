@@ -9,18 +9,16 @@
 
 <style>
     .logo {
-        width: 12rem;
-        height: 6rem;
+        width: 10vw;
+        height: 10vh;
         margin: 0.5rem 0 0 0.5rem;
-        max-width: 90%;
     }
 
     header {
         border-bottom-color: #6dbbe9;
         border-bottom-style: dotted;
         border-bottom-width: 0.2rem;
-        min-height: 10vh;
+        height: 11.6vh;
         background-color: #fff;
-        overflow: hidden;
     }
 </style>

@@ -14,7 +14,7 @@ class PostController extends Controller
         $post->curdate = date('Y-m-d');
         $post->description = $request->input('description');
         $post->version = $request->input('version');
-        // info('title: '.$title);
+        // info('title: '.$post->title);
         $post->save();
     }
 

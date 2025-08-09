@@ -1,11 +1,17 @@
 <script setup>
-import api from '@/services/api';
+import api from '@/services/api'
+import { onMounted } from 'vue'
 
     const form_title = defineModel('title')
     const form_description = defineModel('description')
     const form_version = defineModel('version')
     
-    function sendTitle() {
+    onMounted(()=> {
+        const mainDiv = document.querySelector('main')
+        mainDiv.style.height = '82vh'
+    })
+
+    function sendPost() {
         api.post('/savepost', {
             title: form_title.value,
             description: form_description.value,
@@ -33,7 +39,7 @@ import api from '@/services/api';
                 <span class="post-text-label">Описание:</span>
                     <textarea v-model="form_description" class="post-text" placeholder="Описание задачи"/>
             </label>       
-            <button @click="sendTitle" class="but-post-accept" type="submit">
+            <button @click="sendPost" class="but-post-accept" type="submit">
                     <img class="img-post-accept" src="@/assets/board/accpet-post.png" />
              </button>
         </div>
@@ -41,6 +47,7 @@ import api from '@/services/api';
 
 <style>
    .make-post {
+        height: 55vh;
         margin-top: 10vh;
         /* background-color: pink; */
     }

@@ -2,7 +2,7 @@
 <template>
     <footer>
         <span class="foot-info">
-            &#169; 2025 +note v1.4
+            &#169; 2025 +note v1.5
         </span>
     </footer>
 </template>
@@ -12,7 +12,7 @@
         display: flex;
         align-items: center; 
         background-color: #6dbbe9;
-        min-height: 6vh;
+        height: 6vh;
         margin-top: auto;
     }
 

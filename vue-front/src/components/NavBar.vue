@@ -1,6 +1,6 @@
 <template>
     <div class="nav-bar">
-        <ul class="nav-list">
+       <ul class="nav-list">
             <li class="nav-items">
                 <router-link :to="{ name: 'home' }">
                     Главная
@@ -20,8 +20,7 @@
         width: 10vw;
         min-height: 82vh;
         border-right: 0.1rem solid #6dbbe9;
-        overflow: hidden;
-        /* background-color: aqua; */
+        /* background-color:  tomato; */
     }
 
     .nav-list{

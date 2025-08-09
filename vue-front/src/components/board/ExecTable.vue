@@ -13,6 +13,9 @@
     const isLast = ref(false)
 
     onMounted(()=> {
+        const mainDiv = document.querySelector('main')
+        mainDiv.style.height = '82vh'
+
         api.get('/gettitle')
             .then((resp)=> {
             posts.value = resp.data.data
@@ -49,7 +52,7 @@
 
 <template>
     <div class="view-post">
-        <table class="post-table">
+       <table class="post-table">
             <thead>
                 <tr>
                     <th>Заголовок</th>
@@ -79,6 +82,18 @@
 </template>
 
 <style>
+    .view-post {
+        height: 50vh;
+        margin-top: 10vh;
+    }
+
+    .scroll-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: tomato; */
+    }
+
     .link-title {
         text-decoration: none;
         color: #406ad1;
@@ -86,18 +101,6 @@
 
     .link-title:hover {
         color: #0604FF;
-    }
-
-    .view-post {
-        height: 23vh;
-        margin-top: 10vh;
-        /* background-color: tomato; */
-    }
-
-    .scroll-block {
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .scroll-ico {

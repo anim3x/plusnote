@@ -1,6 +1,6 @@
 <script setup>
 import NavBar from './NavBar.vue';
-import TaskBoard from './board/TaskBoard.vue';
+import TaskBoard from './TaskBoard.vue';
 
 </script>
 
@@ -14,8 +14,7 @@ import TaskBoard from './board/TaskBoard.vue';
 <style>
     main {
         display: flex;
-        height: 85vh;
         background-color: #fff;
-        /* background-color: tomato; */
+        min-height: 82vh;
     }
 </style>

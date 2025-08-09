@@ -1,6 +1,10 @@
+<script setup>
+
+</script>
+
 <template>
     <div class="post">
-        <router-view />
+        <router-view /> 
     </div>
 </template>
 
@@ -8,10 +12,6 @@
     .post {
         display: flex;
         justify-content: center;
-        /* align-items: center; */
         width: 60vw;
-        min-height: 82vh;
-        overflow: hidden;
-        /* background-color: pink; */
     }
 </style>
