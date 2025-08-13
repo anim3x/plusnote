@@ -1,4 +1,4 @@
-# Зайти в БД CLI
+# Зайти в БД cli
 mysql -u root -p
 
 # Накатить БД
@@ -12,3 +12,15 @@ php artisan make:controller CommentController
 
 # Создать модель
 php artisan make:model Comment
+
+# Выкатить билд vue.js
+npm run build
+
+# Зайти на prod
+ssh ubuntu@185.86.144.134
+
+# Закоменитровать много строк
+Выделить текст + нажать ctrl + /
+
+# Деплой
+ansible-playbook ./script/prod.yml

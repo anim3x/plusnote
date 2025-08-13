@@ -8,7 +8,7 @@
 
     const posts = ref([])
     const pageNum = ref(1)
-    const maxNum = ref()
+    const maxNum = ref(1)
     const isFirst = ref(true)
     const isLast = ref(false)
 
@@ -20,6 +20,9 @@
             .then((resp)=> {
             posts.value = resp.data.data
             maxNum.value = resp.data.last_page
+            if (maxNum.value == 1) {
+                isLast.value = true
+            }
         })
     })
 
@@ -56,16 +59,18 @@
             <thead>
                 <tr>
                     <th>Заголовок</th>
+                    <th>Версия</th>
                     <th>Дата</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="post in posts" :key="post.title">
+                <tr v-for="post in posts" :key="post.id">
                     <td>
                         <router-link :to="`/post/${post.id}`" class="link-title">
                             {{ post.title }}
                         </router-link>
                     </td>
+                    <td>{{ post.version }}</td>
                     <td>{{ post.curdate }}</td>
                 </tr>
             </tbody>
@@ -116,7 +121,7 @@
 
     .post-table {
         border: 1px solid grey;
-        width: 30rem;
+        width: 35rem;
         border-collapse: collapse;
     }
 
@@ -137,7 +142,11 @@
         font-size: 14pt;
     }
     td:nth-child(2) {
-        width: 35%;
+        width: 10%;
+        text-align: center;
+    }
+    td:nth-child(3) {
+        width: 25%;
         text-align: center;
     }
 </style>

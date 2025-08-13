@@ -130,9 +130,10 @@
         color: #406ad1;
     }
 
-    .comment-all {
+    /* .comment-all {
+        background-color: pink;
         padding-bottom: 2rem;
-    }
+    } */
 
     .comment-meta {
         font-size: 12pt;

@@ -17,7 +17,10 @@ class CommentController extends Controller
     }
 
     public function getComment($post_id) {
-        $comments = DB::table('comments')->where('post_id', $post_id)->get(['id', 'comment', 'add_timestamp']);
+        $comments = DB::table('comments')
+            ->where('post_id', $post_id)
+            ->orderBy('id', 'desc')
+            ->get(['id', 'comment', 'add_timestamp']);
         return $comments;
     }
 }

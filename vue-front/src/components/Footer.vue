@@ -1,8 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
     <footer>
+        <a  className="git-link"
+            href="https://github.com/anim3x/plusnote"
+            target="_blank">
+        <img src='@/assets/main/github-ico.png' class="git-ico" />
+         </a>
         <span class="foot-info">
-            &#169; 2025 +note v1.5
+            plusnote v2.0
         </span>
     </footer>
 </template>
@@ -17,8 +22,14 @@
     }
 
     .foot-info {
-        margin-left: 1rem;
+        margin-left: 0.75rem;
         font-size: 1.15rem;
         color: #fff;
+    }
+
+    .git-ico {
+        margin-left: 1.5rem;
+        width: 1.75rem;
+        height: 1.5rem;
     }
 </style>

@@ -19,7 +19,7 @@ class PostController extends Controller
     }
 
     public function getTitle() {
-        $posts = DB::table('posts')->orderBy('id', 'desc')->paginate(10, ['id', 'title', 'curdate']);
+        $posts = DB::table('posts')->orderBy('id', 'desc')->paginate(10, ['id', 'title', 'curdate', 'version']);
         return $posts;
     }
 

@@ -16,5 +16,6 @@ import TaskBoard from './TaskBoard.vue';
         display: flex;
         background-color: #fff;
         min-height: 82vh;
+        overflow: hidden;
     }
 </style>

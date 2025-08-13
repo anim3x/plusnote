@@ -1,0 +1,29 @@
+- name: Build vue release
+  hosts: localhost
+  connection: localhost
+  tasks:
+    - name: make build
+      command: npm run build
+      args:
+        chdir: /home/ubuntu/plusnote/vue-front/
+
+- name: Transfer release to prod
+  hosts: prod
+  tasks:
+    - name: copy front
+      become: yes
+      synchronize:
+        src: /home/ubuntu/plusnote/vue-front/dist/
+        dest: /var/www/vue-app/
+        delete: yes
+
+    - name: copy back
+      become: yes
+      synchronize:
+        src: "{{ item }}/"
+        dest: "/var/www/lara-api/{{ item | basename }}/"
+        delete: yes
+      loop:
+        - "/home/ubuntu/plusnote/lara-back/app"
+        - "/home/ubuntu/plusnote/lara-back/database"
+        - "/home/ubuntu/plusnote/lara-back/routes"

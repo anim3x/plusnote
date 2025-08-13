@@ -21,6 +21,7 @@
         min-height: 82vh;
         border-right: 0.1rem solid #6dbbe9;
         /* background-color:  tomato; */
+        overflow: hidden;
     }
 
     .nav-list{

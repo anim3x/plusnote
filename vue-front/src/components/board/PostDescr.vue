@@ -6,10 +6,8 @@
     import arrPrevDis from '@/assets/board/arr-left-dis.png'
     import arrNext from '@/assets/board/arr-right.png'
     import arrNextDis from '@/assets/board/arr-right-dis.png'
-    import CommentBar from '../comment/CommentBar.vue'
+    import CommentBar from './CommentBar.vue'
 
-
-    // const foUrl = 'http://dev.lan:5173'
     const route = useRoute()
     const router = useRouter()
     const title = ref()
@@ -37,9 +35,7 @@
 
     function incrPage() {
         pageNum.value++
-        // window.location = `${foUrl}/post/${pageNum.value}`
         router.push(`/post/${pageNum.value}`)
-        // console.log(pageNum.value)
         if (pageNum.value > 1)
             isFirst.value = false
 
@@ -49,9 +45,7 @@
 
     function decrPage() {
         pageNum.value--
-        // window.location = `${foUrl}/post/${pageNum.value}`
         router.push(`/post/${pageNum.value}`)
-        // console.log(pageNum.value)
         if (pageNum.value == 1)
             isFirst.value = true
 
@@ -60,8 +54,6 @@
     }
 
     function getPost() {
-        // console.log(route.params.id)
-        // api.get(`/getpost/${route.params.id}`)
         api.get(`/getpost/${pageNum.value}`)
             .then((resp)=> {
             title.value = resp.data.title
